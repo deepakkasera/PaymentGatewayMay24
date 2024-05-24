@@ -7,7 +7,6 @@ import org.json.JSONObject;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-
 @Component
 @Primary
 public class RazorpayPaymentGateway implements PaymentGateway {
@@ -21,13 +20,12 @@ public class RazorpayPaymentGateway implements PaymentGateway {
     public String createPaymentLink(Long orderId) {
         //Order order = orderService.getOrder(orderId)
         //amount = order.getAmount();
-
         JSONObject paymentLinkRequest = new JSONObject();
         paymentLinkRequest.put("amount", 1000); // 10.00
         paymentLinkRequest.put("currency","INR");
 //        paymentLinkRequest.put("accept_partial",true);
 //        paymentLinkRequest.put("first_min_partial_amount",100);
-        paymentLinkRequest.put("expire_by", 1716346795);
+        paymentLinkRequest.put("expire_by", 1716601690);
         paymentLinkRequest.put("reference_id", orderId.toString());
         paymentLinkRequest.put("description","Payment for order id: " + orderId.toString());
         JSONObject customer = new JSONObject();
